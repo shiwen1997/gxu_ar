@@ -1,0 +1,68 @@
+apply plugin: 'com.android.application'
+
+
+android {
+    compileSdkVersion 27
+
+    buildToolsVersion "27.0.3"
+
+    dexOptions {
+
+        incremental true
+
+        javaMaxHeapSize "4g"
+
+    }
+
+    sourceSets.main {
+        jni.srcDirs = []
+        jniLibs.srcDir "src/main/java/build/lib/"
+    }
+
+
+    defaultConfig {
+        multiDexEnabled true
+
+        applicationId "com.example.yun.bottomdemo"
+        minSdkVersion 15
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+
+        ndk {
+            // Default ABI list for this app, can be over-ridden by providing an abiList property
+            // e.g. gradle -PabiList=x86 clean assembleDebug
+            abiFilters((project.findProperty('abiList') ?: 'armeabi-v7a, arm64-v8a, x86').split(/,\s*/))
+        }
+    }
+    archivesBaseName = rootProject.projectDir.getName()
+
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets { main { assets.srcDirs = ['src/main/assets', 'src/main/assets/ImageTargets'] } }
+}
+
+dependencies {
+
+    implementation 'com.squareup.okhttp3:okhttp:3.12.1'
+
+
+
+    implementation 'com.android.support:appcompat-v7:27.0.1-beta1'
+    implementation 'com.google.ar:core:1.4.0'
+    implementation 'com.android.support:design:27+'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'com.android.support:support-vector-drawable:27.+'
+    implementation 'com.android.support:support-v4:27.+'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:0.5'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:2.2.2'
+    implementation files('src/main/java/build/java/Vuforia/Vuforia.jar')
+}

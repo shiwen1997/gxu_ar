@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context="ui.DMSBActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <TextView android:id="@+id/gxu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textSize="@dimen/menu_title"
+            android:padding="@dimen/menu_title_padding"
+            android:background="@color/blue1"
+            android:textStyle="bold"
+            android:textColor="@color/gray"
+            android:text="广西大学大门石碑AR展示"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        >
+
+
+        <LinearLayout
+            android:paddingLeft="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ProgressBar
+                android:id="@+id/pgb"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="240dp"
+                android:layout_height="10dp"
+                android:max="100"
+                android:progress="0"
+                android:layout_gravity="center_vertical"/>
+            <TextView
+                android:paddingLeft="10dp"
+                android:id="@+id/tv_result_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="文件1下载:0%"
+                />
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ProgressBar
+                android:id="@+id/pgb_2"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="240dp"
+                android:layout_height="10dp"
+                android:progress="0"
+                android:max="100"
+                android:layout_gravity="center_vertical"
+                />
+            <TextView
+                android:id="@+id/tv_result_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="文件2下载:0%"
+                android:paddingLeft="10dp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ProgressBar
+                android:id="@+id/pgb_3"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="240dp"
+                android:layout_height="10dp"
+                android:max="100"
+                android:progress="0"
+                android:layout_gravity="center_vertical"
+                />
+
+            <TextView
+                android:id="@+id/tv_result_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="文件3下载:0%"
+                android:paddingLeft="10dp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            >
+            <ProgressBar
+                android:id="@+id/pgb_4"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="240dp"
+                android:layout_height="10dp"
+                android:max="100"
+                android:layout_gravity="center_vertical"
+                />
+
+            <TextView
+                android:id="@+id/tv_result_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="文件4下载:0%"
+                android:progress="0"
+                android:paddingLeft="10dp"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <Button
+            android:id="@+id/Button_dmsbtexcoords_downLoad"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:onClick="down_dmsbtexcoords_onClick"
+            android:text="下载文件"
+            android:layout_weight="1"
+            />
+        <Button
+            android:id="@+id/Button_dmsbtexcoords_delete"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="删除文件"
+            android:onClick="delete_dmsbtexcoords_onClick"
+            android:layout_weight="1"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:layout_marginTop="10dp">
+       <ImageView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:background="@drawable/img1"
+           android:layout_marginLeft="10dp"
+           android:layout_marginRight="10dp"
+           android:layout_marginBottom="10dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="返回"
+            android:onClick="goMain"
+            android:layout_weight="1"/>
+        <Button
+            android:id="@+id/go_luncher"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:onClick="goLuncher_dmsb"
+            android:layout_weight="1"
+            android:text="加载模型" />
+    </LinearLayout>
+
+</LinearLayout>
